@@ -1,0 +1,261 @@
+/* ============================================================
+   Strata Dev Portfolio — styles.css
+   Author: Keaton Moore
+   Approach: Mobile-first (base styles target small screens,
+             larger layouts are added via min-width media queries)
+
+   Color palette:
+     --ink      #14171c   (deep slate — base text / dark bands)
+     --stone    #3a4049   (mid gray — secondary text)
+     --fog      #e8e6e1   (warm light gray — surfaces)
+     --paper    #f7f6f3   (off-white — page background)
+     --copper   #b4622d   (mineral-seam accent)
+   ============================================================ */
+
+:root {
+  --ink:    #14171c;
+  --stone:  #3a4049;
+  --fog:    #e8e6e1;
+  --paper:  #f7f6f3;
+  --copper: #b4622d;
+
+  --maxw: 1080px;
+  --gap: 1.25rem;
+}
+
+/* ---------- Reset / base ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--copper); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 .5em; }
+h1 { font-size: 2.1rem; }
+h2 { font-size: 1.5rem; }
+
+/* Visible keyboard focus for accessibility */
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--copper);
+  outline-offset: 2px;
+}
+
+/* ---------- Header / Nav (mobile: stacked) ---------- */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding: 1rem 1.25rem;
+  background: var(--ink);
+  border-bottom: 4px solid var(--copper);
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: 1.1rem;
+  color: var(--paper);
+}
+.brand:hover { text-decoration: none; }
+.brand-mark.accent { color: var(--copper); }
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.site-nav a {
+  color: var(--fog);
+  font-weight: 600;
+  font-size: .95rem;
+}
+.site-nav a:hover { color: var(--copper); text-decoration: none; }
+.site-nav a.is-current { color: var(--copper); }
+
+/* ---------- Layout wrappers ---------- */
+main { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
+
+.hero {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--fog);
+}
+.hero-compact { padding: 2.5rem 0 1.5rem; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--copper);
+  margin: 0 0 .75rem;
+}
+.lede { font-size: 1.1rem; color: var(--stone); max-width: 48ch; }
+
+/* ---------- Buttons ---------- */
+.cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.btn {
+  display: inline-block;
+  padding: .7rem 1.4rem;
+  font-weight: 700;
+  border-radius: 2px;
+  border: 2px solid var(--ink);
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--copper); border-color: var(--copper); }
+.btn-ghost { color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* ---------- Bands / sections ---------- */
+.band { padding: 2.5rem 0; }
+.band-title {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: var(--stone);
+  border-bottom: 2px solid var(--fog);
+  padding-bottom: .5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Mobile: single column grids */
+.grid-3, .grid-2 { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--fog);
+  border-left: 4px solid var(--copper);
+  padding: 1.25rem;
+}
+.card-num {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--copper);
+  letter-spacing: .1em;
+}
+.card h3 { margin-top: .4rem; }
+.card p { margin: 0; color: var(--stone); }
+
+.project {
+  background: #fff;
+  border: 1px solid var(--fog);
+  padding: 1.5rem;
+}
+.project-meta {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--copper);
+  margin: 0 0 .75rem;
+}
+.project p:last-child { color: var(--stone); margin-bottom: 0; }
+
+.project-media {
+  width: 100%;
+  display: block;
+  background: #000;
+  margin-bottom: 1rem;
+  border: 1px solid var(--fog);
+}
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: .9rem;
+}
+.project-links .btn {
+  padding: .5rem 1rem;
+  font-size: .85rem;
+}
+
+.prose { max-width: 60ch; margin-bottom: 2.5rem; }
+.prose p { color: var(--stone); }
+
+.tag-list, .contact-list { list-style: none; padding: 0; margin: 0; }
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.tag-list li {
+  background: var(--fog);
+  padding: .4rem .85rem;
+  font-size: .85rem;
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--fog);
+}
+.contact-label {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--stone);
+  font-weight: 700;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink);
+  color: var(--fog);
+  text-align: center;
+  padding: 2rem 1.25rem;
+  margin-top: 3rem;
+}
+.site-footer p { margin: .25rem 0; }
+.footer-note { font-size: .8rem; color: #9aa1ab; }
+
+/* ============================================================
+   MEDIA QUERY — larger screens (tablet / desktop)
+   Mobile-first: these rules ENHANCE the stacked mobile layout
+   ============================================================ */
+@media (min-width: 720px) {
+
+  /* Header becomes a horizontal bar */
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+  .site-nav ul { gap: 1.75rem; }
+
+  /* Grids expand to multiple columns */
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* Larger hero type on bigger screens */
+  h1 { font-size: 3rem; }
+  .hero { padding: 4.5rem 0 3.5rem; }
+
+  /* Contact rows become label + value side by side */
+  .contact-list li {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+  .contact-label { min-width: 90px; }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
