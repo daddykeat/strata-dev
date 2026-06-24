@@ -4,8 +4,7 @@ A multi-page personal portfolio built with semantic HTML5 and mobile-first CSS,
 created by **Keaton Moore** for the Module 6 Code-Along.
 
 ## Live site
-🔗 **Published URL:** https://USERNAME.github.io/REPO-NAME/
-*(replace with your GitHub Pages URL after publishing)*
+🔗 **Published URL:** https://daddykeat.github.io/strata-dev/
 
 ## Pages
 - `index.html` — Home / landing page
