@@ -35,6 +35,11 @@ body {
   font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+
+  /* Page-level layout: header / main / footer as grid rows */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 
 a { color: var(--copper); text-decoration: none; }
@@ -184,6 +189,36 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
 .prose { max-width: 60ch; margin-bottom: 2.5rem; }
 .prose p { color: var(--stone); }
 
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+.headshot {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 3px solid var(--copper);
+}
+
+.timeline-list { list-style: none; margin: 0 0 2rem; padding: 0; }
+.timeline-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--fog);
+}
+.timeline-list h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+.timeline-meta {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--copper);
+  margin: 0 0 .4rem;
+}
+.timeline-list p:last-child { margin: 0; color: var(--stone); }
+
 .tag-list, .contact-list { list-style: none; padding: 0; margin: 0; }
 .tag-list {
   display: flex;
@@ -253,6 +288,11 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
     gap: 1.5rem;
   }
   .contact-label { min-width: 90px; }
+
+  /* About intro: headshot beside text on larger screens */
+  .about-intro {
+    grid-template-columns: 140px 1fr;
+  }
 }
 
 /* Respect reduced-motion preferences */
